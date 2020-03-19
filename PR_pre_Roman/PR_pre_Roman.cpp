@@ -56,29 +56,46 @@ int main(){
         //cout<<"L = "<<l<<endl;
         //cout<<"C = "<<c<<endl;
 
-        if(i>=4){
-            //For Debug
-            //cout<<"If i"<<endl;
+        if(i>=3){
             i-=3;
             v++;
+            cout<<"========== If i =========="<<endl;
+            cout<<"I = "<<i<<endl;
+            cout<<"V = "<<v<<endl;
+            cout<<"X = "<<x<<endl;
+            cout<<"L = "<<l<<endl;
+            cout<<"C = "<<c<<endl;
         }
         if(v>=2){
-            //For Debug
-            //cout<<"If v"<<endl;
             v-=2;
             x++;
+            cout<<"========== If v =========="<<endl;
+            cout<<"I = "<<i<<endl;
+            cout<<"V = "<<v<<endl;
+            cout<<"X = "<<x<<endl;
+            cout<<"L = "<<l<<endl;
+            cout<<"C = "<<c<<endl;
         }
-        if(x>=3){
-            //For Debug
-            //cout<<"If x"<<endl;
-            x-=5;
+        if(x>=4){
+            x-=4;
             l++;
+            cout<<"========== If x4 =========="<<endl;
+            cout<<"I = "<<i<<endl;
+            cout<<"V = "<<v<<endl;
+            cout<<"X = "<<x<<endl;
+            cout<<"L = "<<l<<endl;
+            cout<<"C = "<<c<<endl;
         }
+
         if(l>=2){
-            //For Debug
-            //cout<<"If l"<<endl;
             l-=2;
             c++;
+            cout<<"========== If l =========="<<endl;
+            cout<<"I = "<<i<<endl;
+            cout<<"V = "<<v<<endl;
+            cout<<"X = "<<x<<endl;
+            cout<<"L = "<<l<<endl;
+            cout<<"C = "<<c<<endl;
         }
         //For Debug
         //cout<<"After If"<<endl;
