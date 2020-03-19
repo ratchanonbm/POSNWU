@@ -3,9 +3,10 @@
 using namespace std;
 
 int main() {
-    while(true){
+    //for(int q=1;q<=100;q++){
     int n;
     cin>>n;
+    int number = n;
 
     int i=0,v=0,x=0,l=0,c=0;
 
@@ -25,12 +26,12 @@ int main() {
     n %= 1;
 
 
-    cout<<"Before If"<<endl;
-    cout<<"I = "<<i<<endl;
-    cout<<"V = "<<v<<endl;
-    cout<<"X = "<<x<<endl;
-    cout<<"L = "<<l<<endl;
-    cout<<"C = "<<c<<endl;
+    //cout<<"Before If"<<endl;
+    //cout<<"I = "<<i<<endl;
+    //cout<<"V = "<<v<<endl;
+    //cout<<"X = "<<x<<endl;
+    //cout<<"L = "<<l<<endl;
+    //cout<<"C = "<<c<<endl;
 
     if(i>3){
         i-=3;
@@ -75,7 +76,6 @@ int main() {
 
     if(l>=2){
         l-=2;
-        //x--;
         c++;
         cout<<"========== If l =========="<<endl;
         cout<<"I = "<<i<<endl;
@@ -84,13 +84,16 @@ int main() {
         cout<<"L = "<<l<<endl;
         cout<<"C = "<<c<<endl;
     }
+    if(number%10==9){
+        x++;
+    }
 
-    cout<<"After If"<<endl;
+    cout<<"Number: "<<number<<endl;
     cout<<"I = "<<i<<endl;
     cout<<"V = "<<v<<endl;
     cout<<"X = "<<x<<endl;
     cout<<"L = "<<l<<endl;
     cout<<"C = "<<c<<endl;
     cout<<"=================================================="<<endl;
-    }
+    //}
 }
