@@ -47,46 +47,48 @@ int main() {
     cout<<"L = "<<l<<endl;
     cout<<"C = "<<c<<endl;
 
-    if(i>=4){
+    if(i>=3){
+        i-=3;
+        v++;
         cout<<"========== If i =========="<<endl;
         cout<<"I = "<<i<<endl;
         cout<<"V = "<<v<<endl;
         cout<<"X = "<<x<<endl;
         cout<<"L = "<<l<<endl;
         cout<<"C = "<<c<<endl;
-        i-=3;
-        v++;
     }
     if(v>=2){
+        v-=2;
+        x++;
         cout<<"========== If v =========="<<endl;
         cout<<"I = "<<i<<endl;
         cout<<"V = "<<v<<endl;
         cout<<"X = "<<x<<endl;
         cout<<"L = "<<l<<endl;
         cout<<"C = "<<c<<endl;
-        v-=2;
-        x++;
     }
-    if(x>=3){
-        cout<<"========== If x =========="<<endl;
+    if(x>=4){
+        x-=4;
+        l++;
+        cout<<"========== If x4 =========="<<endl;
         cout<<"I = "<<i<<endl;
         cout<<"V = "<<v<<endl;
         cout<<"X = "<<x<<endl;
         cout<<"L = "<<l<<endl;
         cout<<"C = "<<c<<endl;
-        x-=5;
-        l++;
     }
+
     if(l>=2){
+        l-=2;
+        c++;
         cout<<"========== If l =========="<<endl;
         cout<<"I = "<<i<<endl;
         cout<<"V = "<<v<<endl;
         cout<<"X = "<<x<<endl;
         cout<<"L = "<<l<<endl;
         cout<<"C = "<<c<<endl;
-        l-=2;
-        c++;
     }
+
     cout<<"After If"<<endl;
     cout<<"I = "<<i<<endl;
     cout<<"V = "<<v<<endl;
