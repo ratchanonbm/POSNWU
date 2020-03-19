@@ -56,46 +56,55 @@ int main(){
         //cout<<"L = "<<l<<endl;
         //cout<<"C = "<<c<<endl;
 
-        if(i>=3){
+        if(i>3){
             i-=3;
             v++;
-            cout<<"========== If i =========="<<endl;
-            cout<<"I = "<<i<<endl;
-            cout<<"V = "<<v<<endl;
-            cout<<"X = "<<x<<endl;
-            cout<<"L = "<<l<<endl;
-            cout<<"C = "<<c<<endl;
+            //cout<<"========== If i =========="<<endl;
+            //cout<<"I = "<<i<<endl;
+            //cout<<"V = "<<v<<endl;
+            //cout<<"X = "<<x<<endl;
+            //cout<<"L = "<<l<<endl;
+            //cout<<"C = "<<c<<endl;
         }
         if(v>=2){
             v-=2;
             x++;
-            cout<<"========== If v =========="<<endl;
-            cout<<"I = "<<i<<endl;
-            cout<<"V = "<<v<<endl;
-            cout<<"X = "<<x<<endl;
-            cout<<"L = "<<l<<endl;
-            cout<<"C = "<<c<<endl;
+            //cout<<"========== If v =========="<<endl;
+            //cout<<"I = "<<i<<endl;
+            //cout<<"V = "<<v<<endl;
+            //cout<<"X = "<<x<<endl;
+            //cout<<"L = "<<l<<endl;
+            //cout<<"C = "<<c<<endl;
         }
         if(x>=4){
             x-=4;
             l++;
-            cout<<"========== If x4 =========="<<endl;
-            cout<<"I = "<<i<<endl;
-            cout<<"V = "<<v<<endl;
-            cout<<"X = "<<x<<endl;
-            cout<<"L = "<<l<<endl;
-            cout<<"C = "<<c<<endl;
+            //cout<<"========== If x4 =========="<<endl;
+            //cout<<"I = "<<i<<endl;
+            //cout<<"V = "<<v<<endl;
+            //cout<<"X = "<<x<<endl;
+            //cout<<"L = "<<l<<endl;
+            //cout<<"C = "<<c<<endl;
+        } else if(x>3){
+            x-=3;
+            l++;
+            //cout<<"========== If x4 =========="<<endl;
+            //cout<<"I = "<<i<<endl;
+            //cout<<"V = "<<v<<endl;
+            //cout<<"X = "<<x<<endl;
+            //cout<<"L = "<<l<<endl;
+            //cout<<"C = "<<c<<endl;
         }
 
         if(l>=2){
             l-=2;
             c++;
-            cout<<"========== If l =========="<<endl;
-            cout<<"I = "<<i<<endl;
-            cout<<"V = "<<v<<endl;
-            cout<<"X = "<<x<<endl;
-            cout<<"L = "<<l<<endl;
-            cout<<"C = "<<c<<endl;
+            //cout<<"========== If l =========="<<endl;
+            //cout<<"I = "<<i<<endl;
+            //cout<<"V = "<<v<<endl;
+            //cout<<"X = "<<x<<endl;
+            //cout<<"L = "<<l<<endl;
+            //cout<<"C = "<<c<<endl;
         }
         //For Debug
         //cout<<"After If"<<endl;
