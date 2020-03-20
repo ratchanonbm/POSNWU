@@ -28,21 +28,21 @@ int main() {
         }
 
         //Copy input to direction
-        strcpy(dir,input);
+        //strcpy(dir,input);
 
         //Test Input Converter step 1
         //printf("Distance = %d \tDirection = %s\n",dis,dir);
 
 
         //Translate The Direction
-        if(dir[0] == 'N' && dir[1] == '\0') {y+=dis;} //North
-        else if(dir[0] == 'N' && dir[1] == 'E') {x+=sqrt(pow(dis,2)/2);y+=sqrt(pow(dis,2)/2);} //NorthEast
-        else if(dir[0] == 'E' && dir[1] == '\0') {x+=dis;} //NorthEast
-        else if(dir[0] == 'S' && dir[1] == 'E') {x+=sqrt(pow(dis,2)/2);y-=sqrt(pow(dis,2)/2);} //NorthWest
-        else if(dir[0] == 'S' && dir[1] == '\0') {y-=dis;} //South
-        else if(dir[0] == 'S' && dir[1] == 'W') {x-=sqrt(pow(dis,2)/2);y-=sqrt(pow(dis,2)/2);} //SouthWest
-        else if(dir[0] == 'W' && dir[1] == '\0') {x-=dis;} //West
-        else if(dir[0] == 'N' && dir[1] == 'W') {x-=sqrt(pow(dis,2)/2);y+=sqrt(pow(dis,2)/2);} //NorthWest
+        if(input[0] == 'N' && input[1] == '\0') {y+=dis;} //North
+        else if(input[0] == 'N' && input[1] == 'E') {x+=sqrt(pow(dis,2)/2);y+=sqrt(pow(dis,2)/2);} //NorthEast
+        else if(input[0] == 'E' && input[1] == '\0') {x+=dis;} //NorthEast
+        else if(input[0] == 'S' && input[1] == 'E') {x+=sqrt(pow(dis,2)/2);y-=sqrt(pow(dis,2)/2);} //NorthWest
+        else if(input[0] == 'S' && input[1] == '\0') {y-=dis;} //South
+        else if(input[0] == 'S' && input[1] == 'W') {x-=sqrt(pow(dis,2)/2);y-=sqrt(pow(dis,2)/2);} //SouthWest
+        else if(input[0] == 'W' && input[1] == '\0') {x-=dis;} //West
+        else if(input[0] == 'N' && input[1] == 'W') {x-=sqrt(pow(dis,2)/2);y+=sqrt(pow(dis,2)/2);} //NorthWest
 
         //Now position
         //printf("========== Now =========\nX: %0.3lf\tY: %0.3lf\n",x,y);
