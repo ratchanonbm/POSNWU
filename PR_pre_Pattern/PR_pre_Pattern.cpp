@@ -20,7 +20,7 @@ int main() {
         Q--;
 
         //Mark The Pattern
-        for(int j=0;j<R;j++){
+        for(int j=0;j<R&&Q+j<70;j++){
             pat[P][Q+j] = 1;
         }
         if(P>maxRow) maxRow = P;
@@ -28,7 +28,7 @@ int main() {
 
     //Print Pattern
     for(int i=0;i<=maxRow;i++){
-        cout<<"Row - "<<i+1<<" | ";
+        //cout<<"Row - "<<i+1<<" | ";
         for(int j=0;j<70;j++){
             if(pat[i][j]==1) cout<<"x"; //If mark print x
             else cout<<"o"; //If not mark print o
