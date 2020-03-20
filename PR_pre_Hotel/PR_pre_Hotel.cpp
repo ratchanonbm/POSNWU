@@ -9,33 +9,17 @@ int main() {
 
     cin>>n;
 
-    //ROOM size XL
-    cout<<"========== Room XL =========="<<endl;
-    price += (n/15)*3000;
-    cout<<"Room: "<<n/15<<"\tPrice: "<<(n/15)*3000<<endl;
-    cout<<"Total: "<<price<<endl;
-    n %= 15;
-
-    //ROOM size L
-    cout<<"========== Room L =========="<<endl;
-    price += (n/5)*1500;
-    cout<<"Room: "<<n/15<<"\tPrice: "<<(n/15)*3000<<endl;
-    cout<<"Total: "<<price<<endl;
-    n %= 5;
-
-    //ROOM size M
-    cout<<"========== Room M =========="<<endl;
-    price += (n/2)*800;
-    cout<<"Room: "<<n/15<<"\tPrice: "<<(n/15)*3000<<endl;
-    cout<<"Total: "<<price<<endl;
-    n %= 2;
-
-    //ROOM size S
-    cout<<"========== Room S =========="<<endl;
-    price += (n/1)*500;
-    cout<<"Room: "<<n/15<<"\tPrice: "<<(n/15)*3000<<endl;
-    cout<<"Total: "<<price<<endl;
-    n %= 1;
+    if(n%15==1) price = ((n/15)*3000) + 500;
+    else if(n%15==2) price = ((n/15)*3000) + 800;
+    else if(n%15==3) price = ((n/15)*3000) + 1300;
+    else if(n%15==4) price = ((n/15)*3000) + 1500;
+    else if(n%15==5) price = ((n/15)*3000) + 1500;
+    else if(n%15==6) price = ((n/15)*3000) + 2000;
+    else if(n%15==7) price = ((n/15)*3000) + 2300;
+    else if(n%15==8) price = ((n/15)*3000) + 2800;
+    else {
+        price = ((n/15)*3000)+3000;
+    }
 
     cout<<price;
 
