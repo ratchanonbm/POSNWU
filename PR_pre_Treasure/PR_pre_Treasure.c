@@ -14,7 +14,6 @@ int main() {
     while(input[0] != '*'){
 
         int dis = atoi(input); //Pull integer from string
-        char dir[2];
 
         while(((int)input[0] < 65 || (int)input[0] > 90) && input[0] != '\0'){
 
