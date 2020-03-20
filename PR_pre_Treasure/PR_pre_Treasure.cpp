@@ -19,7 +19,6 @@ int main() {
             while(input[p] != '\0'){
                 input[p] = input[p+1];
                 p++;
-
             }
         }
 
@@ -36,7 +35,7 @@ int main() {
 
         scanf("%s",&input);
     }
-
-    cout<<x<<y<<setprecision(2);
-    cout<<sqrt(pow(x,2)+pow(y,2))<<setprecision(2);
+    cout<<setprecision(3)<<fixed;
+    cout<<x<<" "<<y<<endl;
+    cout<<sqrt(pow(x,2)+pow(y,2));
 }
