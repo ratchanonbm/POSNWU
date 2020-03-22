@@ -8,13 +8,16 @@ int main() {
     //Start Code
     int L,N;
     cin>>L>>N;
+
     char word[L];
     char pword[L];
     char bword[L];
 
+    //Receive First Word
     cin>>pword;
     cout<<"First Word : "<<pword<<endl;
 
+    //For loop receive other word until N
     for(int i=1;i<N;i++){
         cin>>word;
 
@@ -28,18 +31,19 @@ int main() {
 
             if(word[j] != pword[j]) diff++; //If It different
 
+            cout<<"Check Letter: "<<j<<"\t"<<word[j]<<"\t"<<pword[j]<<endl;
+            cout<<"Now Diff : "<<diff<<endl;
+
             //If it different  more than 2 no more check
             if(diff>2) {
                 strcpy(bword,pword); //Save Broken chain word
                 break;
             }
-            cout<<"Check Letter: "<<j<<"\t"<<word[j]<<"\t"<<pword[j]<<endl;
-            cout<<"Now Diff : "<<diff<<endl;
         }
         strcpy(pword,word);
     }
 
-    cout<<bword;
+    cout<<bword<<endl;
 
     return 0;
 }
