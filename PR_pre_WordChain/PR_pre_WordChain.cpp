@@ -11,19 +11,21 @@ int main() {
 
     char word[L];
     char pword[L];
-    char bword[L];
+    char lword[L];
+
+    int maxDiff=0;
 
     //Receive First Word
     cin>>pword;
-    cout<<"First Word : "<<pword<<endl;
+    //cout<<"First Word : "<<pword<<endl;
 
     //For loop receive other word until N
     for(int i=1;i<N;i++){
         cin>>word;
 
         //Check Word with Previous Word
-        cout<<"========== [Now Check] ========="<<endl;
-        cout<<"Previous Word: "<<pword<<"\tCurrent Word: "<<word<<endl;
+        //cout<<"========== [Now Check] ========="<<endl;
+        //cout<<"Previous Word: "<<pword<<"\tCurrent Word: "<<word<<endl;
 
         int diff = 0;
 
@@ -31,18 +33,27 @@ int main() {
 
             if(word[j] != pword[j]) diff++; //If It different
 
-            cout<<"Check Letter: "<<j<<"\t"<<word[j]<<"\t"<<pword[j]<<"\tNow Diff : "<<diff<<endl;
-
-            //If it different  more than 2 no more check
-            if(diff>2) {
-                strcpy(bword,pword); //Save Broken chain word
-                break;
-            }
+            //cout<<"Check Letter: "<<j<<"\t"<<word[j]<<"\t"<<pword[j]<<"\tNow Diff : "<<diff<<endl;
         }
+
+        if(maxDiff<diff) maxDiff = diff;
+        //cout<<"Max Diff: "<<maxDiff<<endl;
+
+        //Check If Different letter more than 2 Broken word is previous word
+        if(diff>2) {
+            strcpy(lword,pword); //Save Broken chain word
+        }
+        //Check If Different letter lees than 2 and this word is last word,last word is this word
+        else if(i == N-1&&maxDiff <= 2){
+            //cout<<"This is last Word"<<endl;
+            strcpy(lword,word);
+        }
+
+        //Make Current is Previous Word for next word
         strcpy(pword,word);
     }
 
-    cout<<bword<<endl;
+    cout<<lword;
 
     return 0;
 }
