@@ -31,8 +31,7 @@ int main() {
 
             if(word[j] != pword[j]) diff++; //If It different
 
-            cout<<"Check Letter: "<<j<<"\t"<<word[j]<<"\t"<<pword[j]<<endl;
-            cout<<"Now Diff : "<<diff<<endl;
+            cout<<"Check Letter: "<<j<<"\t"<<word[j]<<"\t"<<pword[j]<<"\tNow Diff : "<<diff<<endl;
 
             //If it different  more than 2 no more check
             if(diff>2) {
