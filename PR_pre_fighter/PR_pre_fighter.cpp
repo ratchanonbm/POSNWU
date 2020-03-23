@@ -18,16 +18,8 @@ int main() {
     int odd_strike = 0;
     int even_strike = 0;
 
-    //Have winner flag
-    int winner = 0; //Default Set to false
-
-    //MVP
-    int mvp;
-
     //Attack
     int att;
-
-
 
     //First Attack
     cin>>att;
@@ -74,8 +66,8 @@ int main() {
         //cout<<"Even Strike: "<<even_strike<<"\tOdd Strike: "<<odd_strike<<endl;
 
         //Check Attack strike bonus
-        if(even_strike>=3) power[1] -= 3;
-        else if(odd_strike>=3) power[0] -= 3;
+        if(even_strike>=3) power[1] -= 2;
+        else if(odd_strike>=3) power[0] -= 2;
 
 
 
@@ -84,20 +76,17 @@ int main() {
         //else if(odd_strike>=3) {cout<<"Odd Strike!!! Odd Attack \tDamage: 3"<<endl<<"After Strike\t Odd: "<<power[1]<<"\tEven: "<<power[0]<<endl;}
 
         //Check First Winner
-        if(power[0]<0&&winner==0) {
-            winner = 1;
-            mvp = att;    // Player Make team win
-        } else if(power[1]<0&&winner==0) {
-            winner = 2;
-            mvp = att;    // Player Make team win
+        if(power[0]<=0) {
+            cout<<"1"<<endl;
+            cout<<att;    // Player Make team win
+            break;      //Set have winner true
+        } else if(power[1]<=0) {
+            cout<<"0"<<endl;
+            cout<<att;    // Player Make team win
+            break;      //Set have winner true
         }
 
     }
-
-    if(winner == 1) cout<<"1"<<endl<<mvp;
-    else if(winner = 2) cout<<"0"<<endl<<mvp;
-
-
 
     return 0;
 }
