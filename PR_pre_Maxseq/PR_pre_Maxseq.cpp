@@ -19,7 +19,7 @@ int main() {
     int jmax;
     int mixmax = 0;
     //Mixing number
-    for(int i=2;i<=N;i++){
+    for(int i=1;i<=N;i++){
         //cout<<"Mixing: "<<i<<" numbers"<<endl;
         for(int j=0;j<N;j++){
             int sum = 0;
