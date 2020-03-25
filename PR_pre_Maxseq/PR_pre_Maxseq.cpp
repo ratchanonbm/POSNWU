@@ -18,6 +18,8 @@ int main() {
     int imax;
     int jmax;
     int mixmax = 0;
+
+
     //Mixing number
     for(int i=1;i<=N;i++){
         //cout<<"Mixing: "<<i<<" numbers"<<endl;
