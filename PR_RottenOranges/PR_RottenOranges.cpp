@@ -6,6 +6,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void more(int flag){
+    if(flag == 1) cout<<"Can more rotten"<<endl;
+    else if(flag == 0) cout<<"Can't more rotten"<<endl;
+
+}
+
 void rotten(int flag){
     if(flag == 0) cout<<"Can rotten all"<<endl;
     else if(flag == 1) cout<<"Can rotten all"<<endl;
@@ -53,49 +59,56 @@ int main() {
             for(int i=0;i<M;i++){
                 for(int j=0;j<N;j++){
                     if(basket[i][j] == 2){
-                        //Case in edge
-                            //Top row case
-                            if(i == 0){
-                                //Top row and left col
-                                if(j == 0)
-                                    if(basket[i][j+1] == 0&&basket[i+1][j] == 0) flag_rotten = 0;
-                                //Top Row and right col
-                                else if(j == N-1)
-                                    if(basket[i][j-1] == 0&&basket[i+1][j] == 0) flag_rotten = 0;
-                                //Top row
-                                else
-                                    if(basket[i][j-1] == 0&&basket[i][j+1] == 0&&basket[i+1][j] == 0) flag_rotten = 0;
-                            }
-                            //Bottom Row case
-                            if(i == M-1){
-                                //Bottom row and left col
-                                if(j == 0)
-                                    if(basket[i][j+1] == 0&&basket[i-1][j] == 0) flag_rotten = 0;    //Right
-                                //Bottom Row and right col
-                                else if(j == N-1)
-                                    if(basket[i][j-1] == 0&&basket[i-1][j] == 0) flag_rotten = 0;    //Left
-                                //Bot row
-                                else
-                                    if(basket[i][j-1] == 0&&basket[i][j+1] == 0&&basket[i-1][j] == 0) flag_rotten = 0;    //Left
-                            }
-                            //Left Col case but did't in top and bot
-                            if(j == 0)
-                                if(basket[i][j+1] == 0&&basket[i+1][j] == 0&&basket[i-1][j] == 0) flag_rotten = 0;    //Right
-                            //Right Col case but did't in top and bot
-                            if(j == N-1)
-                                if(basket[i][j-1] == 0&&basket[i+1][j] == 0&&basket[i-1][j] == 0) flag_rotten = 0;    //Left
+                        //cout<<"Check: "<<i<<" "<<j<<endl;
+                            int top = -1;
+                            int bot = -1;
+                            int left = -1;
+                            int right = -1;
 
-                        if(i!=0&&i!=M-1&&j!=0&&j!=N-1)
-                            if(basket[i+1][j] == 0&&basket[i-1][j] == 0&&basket[i][j-1] == 0&&basket[i][j+1] == 0) flag_rotten = 0;    //Top
+                            if(i!=0) top = basket[i-1][j];       //Can find top
+                            if(i!=M-1) bot = basket[i+1][j];     //Can find bottom
+                            if(j!=0) left = basket[i][j-1];      //Can find left
+                            if(j!=N-1) right = basket[i][j+1];   //Can find right
+
+                            if(top==-1){
+                                //Top left
+                                if(left==-1){
+                                    if(bot!=1&&right!=1) flag_rotten = 0;
+                                }
+                                //Top right
+                                else if(right==-1){
+                                    if(bot!=1&&left!=1) flag_rotten = 0;
+                                }
+                                //Top
+                                else{
+                                    if(bot!=1&&right!=1&&left!=1) flag_rotten = 0;
+                                }
+                            }
+                            else if(bot==-1){
+                                //Bottom left
+                                if(left==-1){
+                                    if(top!=1&&right!=1) flag_rotten = 0;
+                                }
+                                //Bottom right
+                                else if(right==-1){
+                                    if(top!=1&&left!=1) flag_rotten = 0;
+                                }
+                                //Bottom
+                                else{
+                                    if(top!=1&&right!=1&&left!=1) flag_rotten = 0;
+                                }
+                            }
+                            else{
+                                //Normal position
+                                if(top!=1&&bot!=1&&right!=1&&left!=1) flag_rotten = 0;
+                            }
                     }
                 }
             }
         }
 
-        /*
-          If it still can rotten
-          Now find day they rotten all
-        */
+        //If it still can rotten Now find day they rotten all
+
         int day=0;    //store minimum day they rotten all
         if(flag_rotten == 1){
             int more_rotten = 1;
@@ -107,68 +120,33 @@ int main() {
                     //Mark Rotten
                     //Check if this orange rotten
                     if(basket[i][j] == 2){
-                        //Case in edge
-                            //Top row case
-                            if(i == 0){
-                                //Top row and left col
-                                if(j == 0){
-                                    if(basket[i][j+1] != 0) basket[i][j+1] = 3;    //Right
-                                    if(basket[i+1][j] != 0) basket[i+1][j] = 3;    //Bottom
-                                }
-                                //Top Row and right col
-                                else if(j == N-1){
-                                    if(basket[i][j-1] != 0) basket[i][j-1] = 3;    //Left
-                                    if(basket[i+1][j] != 0) basket[i+1][j] = 3;    //Bottom
-                                }
-                                //Top row
-                                else{
-                                    if(basket[i][j-1] != 0) basket[i][j-1] = 3;    //Left
-                                    if(basket[i][j+1] != 0) basket[i][j+1] = 3;    //Right
-                                    if(basket[i+1][j] != 0) basket[i+1][j] = 3;    //Bottom
-                                }
+                        //cout<<"Rotten at"<<i<<" "<<j<<endl;
+                            int top = -1;
+                            int bot = -1;
+                            int left = -1;
+                            int right = -1;
 
-                            }
-                            //Bottom Row case
-                            if(i == M-1){
-                                //Bottom row and left col
-                                if(j == 0){
-                                    if(basket[i][j+1] != 0) basket[i][j+1] = 3;    //Right
-                                    if(basket[i-1][j] != 0) basket[i-1][j] = 3;    //Top
-                                }
-                                //Bottom Row and right col
-                                else if(j == N-1){
-                                    if(basket[i][j-1] != 0) basket[i][j-1] = 3;    //Left
-                                    if(basket[i-1][j] != 0) basket[i-1][j] = 3;    //Top
-                                }
-                                //Bot row
-                                else{
-                                    if(basket[i][j-1] == 0) basket[i][j-1] = 3;    //Left
-                                    if(basket[i][j+1] == 0) basket[i][j+1] = 3;    //Right
-                                    if(basket[i-1][j] == 0) basket[i-1][j] = 3;    //Top
-                                }
-                            }
-                            //Left Col case but did't in top and bot
-                            if(j == 0){
-                                if(basket[i][j+1] != 0) basket[i][j+1] = 3;    //Right
-                                if(basket[i+1][j] != 0) basket[i+1][j] = 3;    //Top
-                                if(basket[i-1][j] != 0) basket[i-1][j] = 3;    //Bottom
-                            }
-                                //Right Col case but did't in top and bot
-                            if(j == N-1){
-                                if(basket[i][j-1] != 0) basket[i][j-1] = 3;    //Left
-                                if(basket[i+1][j] != 0) basket[i+1][j] = 3;    //Top
-                                if(basket[i-1][j] != 0) basket[i-1][j] = 3;    //Bottom
-                            }
-                            //Case not in edge
-                            if(i!=0&&i!=M-1&&j!=0&&j!=N-1){
-                                if(basket[i+1][j] != 0) basket[i+1][j] = 3;    //Top
-                                if(basket[i-1][j] != 0) basket[i-1][j] = 3;    //Bottom
-                                if(basket[i][j-1] != 0) basket[i][j-1] = 3;    //Left
-                                if(basket[i][j+1] != 0) basket[i][j+1] = 3;    //Right
-                            }
+                            if(i!=0) top = basket[i-1][j];       //Can find top
+                            if(i!=M-1) bot = basket[i+1][j];     //Can find bottom
+                            if(j!=0) left = basket[i][j-1];      //Can find left
+                            if(j!=N-1) right = basket[i][j+1];   //Can find right
+
+                            if(top!=-1&&top==1) basket[i-1][j] = 3;
+                            if(bot!=-1&&bot==1) basket[i+1][j] = 3;
+                            if(left!=-1&&left==1) basket[i][j-1] = 3;
+                            if(right!=-1&&right==1) basket[i][j+1] = 3;
                         }
                     }
                 }
+            /*cout<<"===== [Basket After] ====="<<endl;
+            for(int i=0;i<M;i++){
+                for(int j=0;j<N;j++){
+                    cout<<basket[i][j]<<" ";  //Input Orange Data
+                }
+                cout<<endl;
+            }*/
+
+
             //Set mark it rotten
             for(int i=0;i<M;i++){
                 for(int j=0;j<N;j++){
@@ -177,81 +155,75 @@ int main() {
             }
 
 
+            int all_rotten = 0;
+            int cant_rotten = 0;
             //Check can rotten more in next time
             for(int i=0;i<M;i++){
                 for(int j=0;j<N;j++){
                     //Check if this orange rotten
                     if(basket[i][j] == 2){
+                        all_rotten++;
                         //Case in edge
-                            //Top row case
-                            if(i == 0){
-                                //Top row and left col
-                                if(j == 0){
-                                    if(basket[i][j+1] == 0) more_rotten = 0;    //Right
-                                    else if(basket[i+1][j] == 0) more_rotten = 0;    //Bottom
-                                }
-                                //Top Row and right col
-                                else if(j == N-1){
-                                    if(basket[i][j-1] == 0) more_rotten = 0;    //Left
-                                    else if(basket[i+1][j] == 0) more_rotten = 0;    //Bottom
-                                }
-                                //Top row
-                                else{
-                                    if(basket[i][j-1] == 0) more_rotten = 0;    //Left
-                                    else if(basket[i][j+1] == 0) more_rotten = 0;    //Right
-                                    else if(basket[i+1][j] == 0) more_rotten = 0;    //Bottom
-                                }
+                            //cout<<"Check: "<<i<<" "<<j<<endl;
+                            int top = -1;
+                            int bot = -1;
+                            int left = -1;
+                            int right = -1;
 
-                            }
-                            //Bottom Row case
-                            if(i == M-1){
-                                //Bottom row and left col
-                                if(j == 0){
-                                    if(basket[i][j+1] == 0) more_rotten = 0;    //Right
-                                    else if(basket[i-1][j] == 0) more_rotten = 0;    //Top
+                            if(i!=0) top = basket[i-1][j];       //Can find top
+                            if(i!=M-1) bot = basket[i+1][j];     //Can find bottom
+                            if(j!=0) left = basket[i][j-1];      //Can find left
+                            if(j!=N-1) right = basket[i][j+1];   //Can find right
+
+                            if(top==-1){
+                                //Top left
+                                if(left==-1){
+                                    if(bot!=1&&right!=1) cant_rotten++;
                                 }
-                                //Bottom Row and right col
-                                else if(j == N-1){
-                                    if(basket[i][j-1] == 0) more_rotten = 0;    //Left
-                                    else if(basket[i-1][j] == 0) more_rotten = 0;    //Top
+                                //Top right
+                                else if(right==-1){
+                                    if(bot!=1&&left!=1) cant_rotten++;
                                 }
-                                //Bot row
+                                //Top
                                 else{
-                                    if(basket[i][j-1] == 0) more_rotten = 0;    //Left
-                                    else if(basket[i][j+1] == 0) more_rotten = 0;    //Right
-                                    else if(basket[i-1][j] == 0) more_rotten = 0;    //Top
+                                    if(bot!=1&&right!=1&&left!=1) cant_rotten++;
                                 }
                             }
-                            //Left Col case but did't in top and bot
-                            if(j == 0){
-                                if(basket[i][j+1] == 0) more_rotten = 0;    //Right
-                                else if(basket[i+1][j] == 0) more_rotten = 0;    //Top
-                                else if(basket[i-1][j] == 0) more_rotten = 0;    //Bottom
+                            else if(bot==-1){
+                                //Bottom left
+                                if(left==-1){
+                                    if(top!=1&&right!=1) cant_rotten++;
+                                }
+                                //Bottom right
+                                else if(right==-1){
+                                    if(top!=1&&left!=1) cant_rotten++;
+                                }
+                                //Bottom
+                                else{
+                                    if(top!=1&&right!=1&&left!=1) cant_rotten++;
+                                }
                             }
-                                //Right Col case but did't in top and bot
-                            if(j == N-1){
-                                if(basket[i][j-1] == 0) more_rotten = 0;    //Left
-                                else if(basket[i+1][j] == 0) more_rotten = 0;    //Top
-                                else if(basket[i-1][j] == 0) more_rotten = 0;    //Bottom
+                            else{
+                                //Normal position
+                                if(top!=1&&bot!=1&&right!=1&&left!=1) cant_rotten++;
                             }
-                            //Case not in edge
-                            if(i!=0&&i!=M-1&&j!=0&&j!=N-1){
-                                if(basket[i+1][j] == 0) more_rotten = 0;    //Top
-                                else if(basket[i-1][j] == 0) more_rotten = 0;    //Bottom
-                                else if(basket[i][j-1] == 0) more_rotten = 0;    //Left
-                                else if(basket[i][j+1] == 0) more_rotten = 0;    //Right
-                            }
+
                         }
                     }
                 }
+                if(cant_rotten == all_rotten) more_rotten = 0;
+                //more_rotten = 0;
+                //cout<<"All Rotten: "<<all_rotten<<"\tCan't rotten: "<<cant_rotten <<endl;
+                //more(more_rotten);
+
             }
-            cout<<"===== [Basket] ====="<<endl;
+            /*cout<<"===== [Basket] ====="<<endl;
             for(int i=0;i<M;i++){
                 for(int j=0;j<N;j++){
                     cout<<basket[i][j]<<" ";  //Input Orange Data
                 }
                 cout<<endl;
-            }
+            }*/
             //After rotten process Check again they rotten all??
             for(int i=0;i<M;i++){
                 for(int j=0;j<N;j++){
