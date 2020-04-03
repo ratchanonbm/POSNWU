@@ -38,12 +38,17 @@ int main() {
         int basket[M][N];   //Create Basket M x N
 
         //Orange Data
+        int r_c = 0;
         for(int i=0;i<M;i++){
             for(int j=0;j<N;j++){
                 cin>>basket[i][j];  //Input Orange Data
-                if(basket[i][j] == 2) flag_rotten = 1;  //Filter Orange in Basket can rotten
+                if(basket[i][j] == 2) {
+                        flag_rotten = 1;  //Filter Orange in Basket can rotten
+                        r_c++;
+                }
             }
         }
+        if(r_c == M*N) flag_rotten = 2;
 
         //Debugging check data
         /*cout<<"===== [Basket] ====="<<endl;
@@ -234,6 +239,7 @@ int main() {
 
         if(flag_rotten == 1) c[t] = day;
         else if(flag_rotten == 0) c[t] = -1;
+        else if(flag_rotten == 2) c[t] = 0;
 
 
     }
