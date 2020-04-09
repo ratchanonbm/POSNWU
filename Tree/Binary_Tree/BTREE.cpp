@@ -38,13 +38,16 @@ void printGivenLevel(Node* tree, int level){
 void printLevelOrder(Node* root){
     int h = height(root);
     int i;
-    for (i = 0; i < h; i++)
+    for (i = 0; i < h; i++){
+        cout<<"Height: "<<i<<endl;
         printGivenLevel(root, i);
+        cout<<endl;
+    }
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
-    cin.tie(0);
+    //cin.tie(0);
 
     //Driver Code
     struct Node *root  = new Node(1);
@@ -52,6 +55,9 @@ int main() {
     root->right         = new Node(3);
     root->left->left    = new Node(4);
     root->left->right   = new Node(5);
+
+    root->right->left   = new Node(6);
+    root->right->right   = new Node(7);
 
 
     cout << "Level Order traversal of binary tree is \n";
