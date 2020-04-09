@@ -16,7 +16,7 @@ struct Node{
 };
 
 int height(Node* Node){
-    if (Node == NULL) return 1;
+    if (Node == NULL) return 0;
     else {
         int lheight = height(Node->left);
         int rheight = height(Node->right);
@@ -28,8 +28,8 @@ int height(Node* Node){
 
 void printGivenLevel(Node* tree, int level){
     if (tree == NULL) return;
-    if (level == 1) cout << tree->data << " ";
-    else if (level > 1) {
+    if (level == 0) cout << tree->data << " ";
+    else if (level > 0) {
         printGivenLevel(tree->left, level-1);
         printGivenLevel(tree->right, level-1);
     }
