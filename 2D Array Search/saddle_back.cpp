@@ -46,6 +46,7 @@ int main() {
     cin.tie(0);
 
     //Start Code
+    find_2d(mat,0,3,0,3,1);
 
 
     return 0;
