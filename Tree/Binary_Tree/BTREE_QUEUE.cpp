@@ -15,35 +15,8 @@ struct Node{
     }
 };
 
-int height(Node* Node){
-    if (Node == NULL) return 0;
-    else {
-        int lheight = height(Node->left);
-        int rheight = height(Node->right);
-        if (lheight > rheight)
-              return(lheight + 1);
-        else return(rheight + 1);
-    }
-}
-
-void printGivenLevel(Node* tree, int level){
-    if (tree == NULL) return;
-    if (level == 0) cout << tree->data << " ";
-    else if (level > 0) {
-        printGivenLevel(tree->left, level-1);
-        printGivenLevel(tree->right, level-1);
-    }
-}
-
-void printLevelOrder(Node* root){
-    int h = height(root);
-    int i;
-    for (i = 0; i < h; i++){
-        cout<<"Height: "<<i<<endl;
-        printGivenLevel(root, i);
-        cout<<endl;
-    }
-}
+//Function Prototype
+void printLevelOrder(Node *root);
 
 int main() {
     ios_base::sync_with_stdio(0);
@@ -66,3 +39,28 @@ int main() {
 
     return 0;
 }
+
+void printLevelOrder(Node *root){
+    if(root == NULL) return;
+
+    //If root doesn't NULL
+    queue<Node *> q;    //Creae Empty Queue
+
+    q.push(root);       //Enqueue root
+
+    while(!q.empty()){
+
+        Node *node = q.front();     //Node = q.front
+        cout<<node->data<<" ";     //Print node data
+        q.pop();                    //Pop queue
+
+        if(node->left != NULL){
+            q.push(node->left);
+        }
+
+        if(node->right != NULL){
+            q.push(node->right);
+        }
+    }
+}
+
