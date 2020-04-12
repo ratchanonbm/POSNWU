@@ -49,7 +49,15 @@ void Union(int parent[],int x,int y){
 int myComp(const void* a,const void* b){
     Edge* a1 = (Edge*) a;
     Edge* b1 = (Edge*) b;
-    return a1->weight > b1->weight; //Source edge by use weight
+    int wa = a1->weight;
+    int wb = b1->weight;
+    if(wa > wb)
+        return 1;
+    else if(wa == wb)
+        return 0;
+    else if(wa < wb)
+        return -1;
+
 }
 
 void KruskalMST(Graph* graph){
