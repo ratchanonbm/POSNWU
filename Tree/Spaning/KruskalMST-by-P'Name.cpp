@@ -1,3 +1,7 @@
+/*
+    Task: Kruskal’s Minimum Spanning Tree Algorithm
+    Lang: C++
+*/
 #include<bits/stdc++.h>
 using namespace std;
 

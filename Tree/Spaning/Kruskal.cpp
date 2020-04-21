@@ -1,5 +1,5 @@
 /*
-    Task:
+    Task: Kruskal’s Minimum Spanning Tree Algorithm
     Author: Ratchanon Panmas
     Lang: C++
 */

@@ -1,5 +1,5 @@
 /*
-    Task: Prim Algo
+    Task: PrimMST Algo
     Author: Ratchanon Panmas
     Lang: C++
 */
