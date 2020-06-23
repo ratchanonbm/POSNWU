@@ -1,5 +1,5 @@
 /*
-    Task: 0005
+    Task:
     Author: Ratchanon Panmas
     Lang: C++
 */
@@ -11,11 +11,15 @@ int main() {
     cin.tie(0);
 
     //Driver Code
-    double a,b;
-    cin>>a>>b;
+    double R;
+    cin>>R;
+
+    double taxi = 2*R*R;
+    double normal = M_PI*R*R;
 
     cout<<setprecision(6)<<fixed;
-    cout<<sqrt(pow(a,2)+pow(b,2));
+    cout<<normal<<"\n"<<taxi;
+
 
     return 0;
 }

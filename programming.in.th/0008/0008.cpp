@@ -1,5 +1,5 @@
 /*
-    Task: 0000
+    Task:
     Author: Ratchanon Panmas
     Lang: C++
 */
@@ -11,9 +11,10 @@ int main() {
     cin.tie(0);
 
     //Driver Code
-    int a,b;
-    cin>>a>>b;
-    cout<<a+b;
+    int x1,s;
+    cin>>x1>>s;
+
+    cout<<s*2-x1;
 
 
     return 0;

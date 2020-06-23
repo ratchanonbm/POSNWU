@@ -1,5 +1,5 @@
 /*
-    Task: 0003
+    Task:
     Author: Ratchanon Panmas
     Lang: C++
 */
@@ -14,16 +14,19 @@ int main() {
     int n;
     cin>>n;
 
-    int mx = INT_MIN;
-    int mn = INT_MAX;
+    int mn,mx;
+    cin>>mn;
+    mx = mn;
+    for(int i=0;i<n-1;i++){
+        int input;
+        cin>>input;
 
-    for(int i=0;i<n;i++){
-        int A;
-        cin>>A;
-        mx = max(mx,A);
-        mn = min(mn,A);
+        mn = min(mn,input);
+        mx = max(mx,input);
     }
-    cout<<mn<<endl<<mx;
+
+    cout<<mn<<"\n"<<mx;
+
 
 
     return 0;
